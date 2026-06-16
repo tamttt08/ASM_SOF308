@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "8 loại rau củ quả giàu canxi",
+      "category": "Sức khỏe",
+      "author": "Thanh Tâm",
+      "summary": "Canxi là khoáng chất cần thiết đối với cơ thể người...",
+      "content": "Canxi là khoáng chất cần thiết đối với cơ thể người. Có nhiều cách để bổ sung canxi, trong đó bổ sung qua đường ăn uống là cách tốt nhất...",
+      "image": "https://picsum.photos/600/400?random=1"
+    },
+    {
+      "id": "2",
+      "title": "Các loại gia vị tốt cho sức khỏe",
+      "category": "Sức khỏe",
+      "author": "Minh Trí",
+      "summary": "Một số loại gia vị cung cấp nhiều polyphenol chống oxy hóa cao...",
+      "content": "Một số loại gia vị cung cấp nhiều polyphenol chống oxy hóa cao hơn các loại gia vị quen thuộc khác...",
+      "image": "https://picsum.photos/600/400?random=2"
+    },
+    {
+      "id": "1f-N6VwxRfY",
+      "title": "Bài mới",
+      "category": "Sức khỏe",
+      "author": "Thanh Tâm",
+      "summary": "Bài mới",
+      "content": "",
+      "image": "https://picsum.photos/600/400?random=29"
+    }
+  ],
+  
+  "users": [
+    {
+      "id": "1",
+      "email": "tamtt@fpt.edu.vn",
+      "password": "123",
+      "name": "Thanh Tâm"
+    },
+    {
+      "id": "2",
+      "email": "admin@fpt.edu.vn",
+      "password": "456",
+      "name": "Người Quản Trị"
+    }
+  ],
+  
+  "$schema": "./node_modules/json-server/schema.json"
+}
