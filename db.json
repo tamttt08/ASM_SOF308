@@ -19,30 +19,70 @@
       "image": "https://picsum.photos/600/400?random=2"
     },
     {
-      "id": "1f-N6VwxRfY",
-      "title": "Bài mới",
-      "category": "Sức khỏe",
+      "id": "nrCckuTLc8c",
+      "title": "Mẹo vặt cuộc sống mà bạn cần phải biết",
+      "category": "Mẹo vặt",
       "author": "Thanh Tâm",
-      "summary": "Bài mới",
-      "content": "",
-      "image": "https://picsum.photos/600/400?random=29"
+      "summary": "Một số mẹo vặt giúp các bạn sinh viên ở trọ",
+      "content": "Mẹo mày bé",
+      "image": "https://picsum.photos/600/400?random=92"
+    },
+    {
+      "id": "r3__lkm1Ljs",
+      "title": "Bài mới 2",
+      "category": "Dinh dưỡng",
+      "author": "Thanh Tâm",
+      "summary": "Bài mới 2",
+      "content": "Bài mới 2",
+      "date": "18/06/2026",
+      "image": "https://picsum.photos/600/400?random=14"
     }
   ],
-  
   "users": [
     {
       "id": "1",
       "email": "tamtt@fpt.edu.vn",
       "password": "123",
-      "name": "Thanh Tâm"
+      "name": "Thành Tâm",
+      "role": "user"
     },
     {
       "id": "2",
       "email": "admin@fpt.edu.vn",
       "password": "456",
-      "name": "Người Quản Trị"
+      "name": "Người Quản Trị",
+      "role": "admin"
+    },
+    {
+      "id": "48UoJNutq9Y",
+      "name": "Nguyễn Văn Mới",
+      "email": "sinhvienmoi@fpt.edu.vn",
+      "password": "123456",
+      "role": "user"
     }
   ],
-  
+  "comments": [
+    {
+      "id": "c1",
+      "postId": "1",
+      "author": "Người Quản Trị",
+      "content": "Bài viết chia sẻ rất bổ ích, cảm ơn tác giả!",
+      "date": "18/06/2026"
+    },
+    {
+      "id": "NmU9JriLr5A",
+      "postId": "1",
+      "author": "Người Mới",
+      "content": "Bài viết hữu ích đấy!",
+      "date": "18/06/2026"
+    },
+    {
+      "id": "kSO4Hk5x6F8",
+      "postId": "1",
+      "author": "Người Quản Trị",
+      "content": "123",
+      "date": "18/06/2026"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
