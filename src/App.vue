@@ -18,11 +18,29 @@
               <router-link class="nav-link" to="/profile" active-class="active">Trang cá nhân</router-link>
             </li>
           </ul>
+          
           <div class="d-flex gap-2 align-items-center">
-            <router-link class="btn btn-danger btn-sm fw-bold me-2" to="/admin">Trang Quản Trị</router-link>
+            <router-link 
+              v-if="currentUser && currentUser.role === 'admin'" 
+              class="btn btn-danger btn-sm fw-bold me-2" 
+              to="/admin"
+            >
+              Trang Quản Trị
+            </router-link>
             
-            <router-link class="btn btn-outline-light btn-sm" to="/login">Đăng nhập</router-link>
-            <router-link class="btn btn-primary btn-sm" to="/register">Đăng ký</router-link>
+            <div v-if="!currentUser" class="d-flex gap-2">
+              <router-link class="btn btn-outline-light btn-sm" to="/login">Đăng nhập</router-link>
+              <router-link class="btn btn-primary btn-sm" to="/register">Đăng ký</router-link>
+            </div>
+
+            <div v-else class="d-flex gap-2 align-items-center">
+              <span class="text-white small me-2">
+                Xin chào, <strong class="text-info">{{ currentUser.name }}</strong>
+              </span>
+              <button class="btn btn-outline-warning btn-sm" @click="handleLogout">
+                Đăng xuất
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -30,22 +48,51 @@
 
     <main class="container mb-5">
       <div class="animated fadeIn">
-        <router-view></router-view>
+        <router-view @loginSuccess="checkLoginStatus"></router-view>
       </div>
     </main>
 
     <footer class="text-muted py-4 bg-light border-top mt-auto">
       <div class="container text-center">
-        <p class="mb-1">© 2026 Assignment 1 - Phát triển ứng dụng Web Frontend</p>
-        <p class="mb-0 small">Thiết kế bởi sinh viên lớp SOF308 - FPT Polytechnic</p>
+        <p class="mb-1">© 2026 Assignment - Xây dựng giao diện tương tác Backend</p>
+        <p class="mb-0 small">FPT Polytechnic</p>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup>
-// Khi dùng Vue Router, cậu không cần import các file component hay quản lý shallowRef ở đây nữa!
-// Toàn bộ logic chia trang sẽ do file src/router/index.ts (hoặc .js) đảm nhận.
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const currentUser = ref(null);
+
+// Hàm kiểm tra trạng thái đăng nhập từ localStorage
+const checkLoginStatus = () => {
+  const savedUser = localStorage.getItem('user');
+  if (savedUser) {
+    currentUser.value = JSON.parse(savedUser);
+  } else {
+    currentUser.value = null;
+  }
+};
+
+// Hàm xử lý khi bấm Đăng xuất
+const handleLogout = () => {
+  if (confirm('Cậu có chắc muốn đăng xuất không nè?')) {
+    localStorage.removeItem('user');
+    localStorage.removeItem('isAuthenticated');
+    currentUser.value = null;
+    alert('Đã đăng xuất thành công!');
+    router.push('/login'); // Đá người dùng về trang Đăng nhập
+  }
+};
+
+// Tự động kiểm tra trạng thái đăng nhập ngay khi vừa tải trang lên
+onMounted(() => {
+  checkLoginStatus();
+});
 </script>
 
 <style>
